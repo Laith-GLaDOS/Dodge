@@ -28,3 +28,4 @@ If you want to debug (aka build without stripping symbols and optimisation then 
 # Notes:  
  - This is just a project for fun, no serious business here or something.  
  - Feel free to contribute.
+ - Some build scripts are missing for now, so don't submit pull requests or issues for them.

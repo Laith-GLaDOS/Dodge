@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {    // for initialising SDL2 and SDL2_image on
     };
     // end region
 
-    printf("Loaded!\n");
+    printf("Loaded!\n"); // print loaded msg
     // main loop region
     main_loop(renderer, res);
     // end region
