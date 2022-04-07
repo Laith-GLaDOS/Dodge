@@ -21,9 +21,9 @@ If you want to debug (aka build without stripping symbols and optimisation then 
 ### Windows:  
 First, make sure you have MinGW and `gcc` installed using MinGW, many tutorials out there exist for this.  
 Then, download the source code of this repo.  
-Then finally, open a command prompt and `cd (path to the downloaded folder)` and do `.\build-scripts\release-windows.bat`
+Then finally, open a command prompt and `cd (path to the downloaded folder)` and do `.\build-scripts\release-windows.bat`  
 And you will have your output in `bin\release\windows\dodge.exe`  
-If you want to debug (aka build without stripping symbols and optimisation then run the game automatically), do `.\build-scripts\debug-windows.bat` instead
+If you want to debug (aka build without stripping symbols and optimisation then run the game automatically), do `.\build-scripts\debug-windows.bat` instead  
   
 # Notes:  
  - This is just a project for fun, no serious business here or something.  
