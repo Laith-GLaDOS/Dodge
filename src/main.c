@@ -4,8 +4,9 @@
 #include <stdio.h>
 #include "main_loop.h"
 #include "typedefs.h"
+#include "renderer_funcs.h"
 
-int main(int argc, char *argv[]) {    // for initialising SDL2 and SDL2_image only, then load sprites/sounds, then call main loop, then destroy/close everything
+int main(int argc, char *argv[]) {    // for initialising SDL2 and SDL2_image only, then load sprites/sounds, then show instructions, then call main loop, then destroy/close everything
     printf("Loading...\n");
 
     // init region
@@ -31,6 +32,7 @@ int main(int argc, char *argv[]) {    // for initialising SDL2 and SDL2_image on
     // load region
     Mix_Chunk *sound_gameload = Mix_LoadWAV("res/audio/load.wav");
     SDL_Texture *sprite_player = IMG_LoadTexture(renderer, "res/image/player.png");
+    SDL_Texture *sprite_laserWarning = IMG_LoadTexture(renderer, "res/image/warning.png");
     if (sound_gameload == NULL) {
         printf("Loading failed! (Mix_LoadWAV(\"res/audio/load.wav\") failed)\n");
         return 1;
@@ -39,15 +41,23 @@ int main(int argc, char *argv[]) {    // for initialising SDL2 and SDL2_image on
         printf("Loading failed! (IMG_LoadTexture(\"res/image/player.png\") failed)\n");
         return 1;
     }
+    if (sprite_laserWarning == NULL) {
+        printf("Loading failed! (IMG_LoadTexture(\"res/image/warning.png\") failed)\n");
+        return 1;
+    }
     struct GameResources res = {
         .sound_gameload = sound_gameload,
         .sprite_player = sprite_player,
         .sprite_player_width = 79,
-        .sprite_player_height = 63
+        .sprite_player_height = 63,
+        .sprite_laserWarning = sprite_laserWarning,
+        .sprite_laserWarning_width = 99,
+        .sprite_laserWarning_height = 64
     };
     // end region
 
     printf("Loaded!\n"); // print loaded msg
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Instructions", "Hold A to move the circle (player) to the left, and B to move the circle to the right\nLook out for warning signs! This is where the lasers will fire\nLasers destroy your player/circle", window); // show instructions
     // main loop region
     main_loop(renderer, res);
     // end region

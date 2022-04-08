@@ -11,4 +11,7 @@ struct GameResources {
     SDL_Texture *sprite_player;
     int sprite_player_width;
     int sprite_player_height;
+    SDL_Texture *sprite_laserWarning;
+    int sprite_laserWarning_width;
+    int sprite_laserWarning_height;
 };
